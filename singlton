@@ -1,6 +1,6 @@
-public class Lesson7Singleton {
-    // В этой статической(!) переменной будет хранится единственный объект класса Lesson7Singleton
-    private static Lesson7Singleton instance;
+public class SingletonClass {
+    // В этой статической(!) переменной будет хранится единственный объект класса SingletonClass
+    private static SingletonClass instance;
 
     // Скажем, что у нашего единственного объекта должно быть поле value
     private String value;
@@ -11,19 +11,19 @@ public class Lesson7Singleton {
     }
 
     // ВАЖНО: Конструктор должен быть приватным
-    // Мы не хотим, чтобы пользователь мог создавать новые объекты класса Lesson7Singleton
-    private Lesson7Singleton(String value) {
+    // Мы не хотим, чтобы пользователь мог создавать новые объекты класса SingletonClass
+    private SingletonClass(String value) {
         this.value = value;
     }
 
-    // Вот этот статический метод будет вызывать пользователь, чтобы получить объект класса Lesson7Singleton
-    public static Lesson7Singleton getInstance(String value) {
+    // Вот этот статический метод будет вызывать пользователь, чтобы получить объект класса SingletonClass
+    public static SingletonClass getInstance(String value) {
         // если ранее не был создан единственный объект
         if (instance == null) {
             // код здесь выполняется только в момент первого вызова метода getInstance()
 
             // создаем объект один раз
-            instance = new Lesson7Singleton(value);
+            instance = new SingletonClass(value);
         }
 
         // все остальные вызовы метода getInstance() пользователю возвращается тот же самый объект
@@ -34,8 +34,8 @@ public class Lesson7Singleton {
 // Тестируем
 class SingletonTest {
     public static void main(String[] args) {
-        Lesson7Singleton first = Lesson7Singleton.getInstance("Hello!");
-        Lesson7Singleton second = Lesson7Singleton.getInstance("Goodbye!");
+        SingletonClass first = SingletonClass.getInstance("Hello!");
+        SingletonClass second = SingletonClass.getInstance("Goodbye!");
 
         // true
         System.out.println(first == second);
